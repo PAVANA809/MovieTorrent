@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+.torrent{
+    margin: 8px;
+    border-bottom: 2px solid black;
+    padding: 8px;
+}
+.searchbar button{
+    margin: 0px 8px;
+    padding: 4px;
+}
+
+input{
+    height: 24px;
+    width: 280px;
+}

@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello torrent</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-</style>
 <body>
     <div id="app">
-        <input type="text" v-model="searchItem">
-        <button @click="search()">Search</button>
-        <br>
-        <div v-for="obj in data" :key="obj.id">
+        <div class="searchbar">
+            <input type="text" v-model="searchItem" v-on:keyup.enter="search()">
+            <button @click="search()">Search</button>
+        </div>
+        <div class="torrent" v-for="obj in data" :key="obj.id">
             <h4>Title: {{obj.title}}</h4>
             <p>Size: {{obj.size}}</p>
             <p>Seeds: {{obj.seeds}}</p>
             <p>Peers: {{obj.peers}}</p>
             <button @click="copy(obj.magnet)">Magnet</button>
             <a v-if="obj.imdb" :href="'https://www.imdb.com/title/' + obj.imdb + '/'" target="_blank">IMDB</a>
-            <hr>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
