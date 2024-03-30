@@ -22,8 +22,10 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <script>
+    
     var app = new Vue({
   el: '#app',
   data: {
@@ -32,6 +34,15 @@
   },
   methods: {
     async search(){
+        Swal.fire({
+            title: 'Loading...',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        })
         try {
         const response = await fetch("https://movie-torrent-api.onrender.com/search/"+this.searchItem, {
             method: 'GET',
@@ -39,7 +50,7 @@
                 'Content-Type': 'application/json'
             },
         });
-
+        Swal.close()
         if (response.ok) {
             const data = await response.json();
             this.data = data['data']
