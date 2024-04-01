@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
+    <div id="app" :class="isDarkMode ? 'dark-mode' : 'white-mode'">
         <div class="searchbar">
-            <input type="text" v-model="searchItem" v-on:keyup.enter="search()">
+            <input class="input-text" type="text" v-model="searchItem" v-on:keyup.enter="search()">
             <button @click="search()">Search</button>
+            <label for="input-cb">Dark Mode: </label>
+            <input id="input-cb" class="input-checkbox" type="checkbox" v-model="isDarkMode">
         </div>
         <div class="torrent" v-for="obj in data" :key="obj.id">
             <h4>Title: {{obj.title}}</h4>
@@ -30,6 +32,7 @@
   el: '#app',
   data: {
     searchItem: "",
+    isDarkMode: true,
     data: null
   },
   methods: {

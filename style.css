@@ -2,16 +2,33 @@
     margin: 0;
     padding: 0;
 }
+
+#app {
+    min-height: 100vh
+}
+
+.dark-mode{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+.white-mode {
+    background-color: white;
+    color: black;
+    border-color: black
+}
+
 .searchbar{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid;
 }
 .torrent{
     margin: 8px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid;
     padding: 8px;
 }
 .searchbar button{
@@ -19,7 +36,11 @@
     padding: 4px;
 }
 
-input{
+.input-text{
     height: 24px;
     width: 280px;
+}
+.input-checkbox {
+    height: 24px;
+    width: 30px;
 }
