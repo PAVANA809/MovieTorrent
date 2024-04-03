@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app" :class="isDarkMode ? 'dark-mode' : 'white-mode'">
+    <div id="app" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
         <div class="searchbar">
-            <input class="input-text" type="text" v-model="searchItem" v-on:keyup.enter="search()">
+            <input class="input-text" type="text" v-model="searchItem" :placeholder="messages.placeHolder" v-on:keyup.enter="search()">
             <button @click="search()">Search</button>
             <label for="input-cb">Dark Mode: </label>
             <input id="input-cb" class="input-checkbox" type="checkbox" v-model="isDarkMode">
@@ -33,68 +33,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
-<script>
-    
-    var app = new Vue({
-  el: '#app',
-  data: {
-    searchItem: "",
-    isDarkMode: true,
-    data: null
-  },
-  methods: {
-    async search(){
-        Swal.fire({
-            title: 'Loading...',
-            allowOutsideClick: false,
-            allowEscapeKey: false,
-            showConfirmButton: false,
-            didOpen: () => {
-                Swal.showLoading();
-            }
-        })
-        try {
-        const response = await fetch("https://movie-torrent-api.onrender.com/search/"+this.searchItem, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
-        Swal.close()
-        if (response.ok) {
-            const data = await response.json();
-            this.data = data['data']
-        } else {
-            alert("Please try again later....");
-        }
-    } catch (error) {
-        console.error("Fetch error:", error);
-        alert("An error occurred. Please try again later....");
-    }
-    },
-    copy(text) {
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Magnet copied to clipboard.",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        })
-        .catch(err => {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Failed to copy magnet link.",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        });
-}
-  }
-})
-</script>
 </html>

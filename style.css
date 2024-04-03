@@ -13,7 +13,7 @@
     border-color: white;
 }
 
-.white-mode {
+.light-mode {
     background-color: white;
     color: black;
     border-color: black
@@ -41,6 +41,6 @@
     width: 280px;
 }
 .input-checkbox {
-    height: 24px;
-    width: 30px;
+    height: 18px;
+    width: 26px;
 }
