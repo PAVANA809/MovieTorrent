@@ -52,7 +52,7 @@ var app = new Vue({
       navigator.clipboard.writeText(text)
           .then(() => {
               Swal.fire({
-                  position: "top-end",
+                  position: "center",
                   icon: "success",
                   title: "Magnet copied to clipboard.",
                   showConfirmButton: false,
@@ -61,7 +61,7 @@ var app = new Vue({
           })
           .catch(err => {
               Swal.fire({
-                  position: "top-end",
+                  position: "center",
                   icon: "error",
                   title: "Failed to copy magnet link.",
                   showConfirmButton: false,
