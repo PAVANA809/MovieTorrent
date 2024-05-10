@@ -27,7 +27,6 @@
     border-bottom: 2px solid;
 }
 .torrent{
-    margin: 8px;
     border-bottom: 2px solid;
     padding: 8px;
 }
@@ -43,4 +42,13 @@
 .input-checkbox {
     height: 18px;
     width: 26px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+}
+.footer a {
+    text-decoration: none;
 }

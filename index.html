@@ -22,13 +22,18 @@
             <label for="input-cb">Dark Mode: </label>
             <input id="input-cb" class="input-checkbox" type="checkbox" v-model="isDarkMode">
         </div>
-        <div class="torrent" v-for="obj in data" :key="obj.id">
-            <h4>Title: {{obj.title}}</h4>
-            <p>Size: {{obj.size}}</p>
-            <p>Seeds: {{obj.seeds}}</p>
-            <p>Peers: {{obj.peers}}</p>
-            <button @click="copy(obj.magnet)">Magnet</button>
-            <a v-if="obj.imdb" :href="'https://www.imdb.com/title/' + obj.imdb + '/'" target="_blank">IMDB</a>
+            <div class="torrent" v-for="obj in data" :key="obj.id">
+                <h4>Title: {{obj.title}}</h4>
+                <p>Size: {{obj.size}}</p>
+                <p>Seeds: {{obj.seeds}}</p>
+                <p>Peers: {{obj.peers}}</p>
+                <button @click="copy(obj.magnet)">Magnet</button>
+                <a v-if="obj.imdb" :href="'https://www.imdb.com/title/' + obj.imdb + '/'" target="_blank">IMDB</a>
+            </div>
+        <div class="footer">
+            <a href="https://github.com/PAVANA809" target="_blank">Github</a>
+            <a href="https://in.linkedin.com/in/pavana-h-a-332b09193" target="_blank">LinkedIn</a>
+            <a href="https://www.youtube.com/channel/UCS1BF9FHLrj4PaaswoSLMpA" target="_blank">YouTube</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
