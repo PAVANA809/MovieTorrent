@@ -51,4 +51,10 @@
 }
 .footer a {
     text-decoration: none;
+    color: rgb(69, 64, 64);
+}
+
+.footer a:hover {
+    cursor: pointer;
+    color: white;
 }
