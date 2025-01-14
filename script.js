@@ -29,8 +29,10 @@ var app = new Vue({
                   Swal.showLoading();
               }
           })
-          try {
-          const response = await fetch("https://movie-torrent-api.onrender.com/search/"+this.searchItem, {
+            try {
+                const localurl = "http://localhost:3001/search/";
+                const produrl = "https://movie-torrent-api.onrender.com/search/";
+          const response = await fetch(produrl+this.searchItem, {
               method: 'GET',
               headers: {
                   'Content-Type': 'application/json'

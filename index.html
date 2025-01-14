@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BZ76F3DCF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-4BZ76F3DCF');
     </script>
@@ -14,9 +17,11 @@
     <title>Hello torrent</title>
     <link rel="stylesheet" href="style.css">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3507316425044293"
-     crossorigin="anonymous"></script>
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3507316425044293"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div id="app" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
         <div class="searchbar">
@@ -25,14 +30,19 @@
             <label for="input-cb">Dark Mode: </label>
             <input id="input-cb" class="input-checkbox" type="checkbox" v-model="isDarkMode">
         </div>
+        <div class="torrent-container">
             <div class="torrent" v-for="obj in data" :key="obj.id">
-                <h4>Title: {{obj.title}}</h4>
-                <p>Size: {{obj.size}}</p>
-                <p>Seeds: {{obj.seeds}}</p>
-                <p>Peers: {{obj.peers}}</p>
-                <button @click="copy(obj.magnet)">Magnet</button>
-                <a v-if="obj.imdb" :href="'https://www.imdb.com/title/' + obj.imdb + '/'" target="_blank">IMDB</a>
+                <img :src="obj.imgurl" alt="Image not found" />
+                <div>
+                    <h4>Title: {{obj.title}}</h4>
+                    <p>Size: {{obj.size}}</p>
+                    <p>Seeds: {{obj.seeds}}</p>
+                    <p>Peers: {{obj.peers}}</p>
+                    <button @click="copy(obj.magnet)">Magnet</button>
+                    <a v-if="obj.imdb" :href="'https://www.imdb.com/title/' + obj.imdb + '/'" target="_blank">IMDB</a>
+                </div>
             </div>
+        </div>
         <div class="footer">
             <a href="https://github.com/PAVANA809" target="_blank">Github</a>
             <a href="https://www.youtube.com/channel/UCS1BF9FHLrj4PaaswoSLMpA" target="_blank">YouTube</a>
@@ -43,4 +53,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
