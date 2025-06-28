@@ -28,7 +28,7 @@
         </div>
         <div class="torrents-container">
             <div class="torrent" v-for="obj in data" :key="obj.id">
-                <h4>Title: {{obj.title}}</h4>
+                <h4>{{obj.title}}</h4>
                 <p class="torrent-info">Size: {{obj.size}}</p>
                 <p class="torrent-info">Seeds: {{obj.seeds}}</p>
                 <p class="torrent-info">Peers: {{obj.peers}}</p>
