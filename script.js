@@ -30,7 +30,7 @@ var app = new Vue({
               }
           })
           try {
-              const response = await fetch("https://movie-torrent-api.onrender.com/search/"+this.searchItem, {
+              const response = await fetch("https://movietorrent.onrender.com/search/"+this.searchItem, {
                   method: 'GET',
                   headers: {
                       'Content-Type': 'application/json'
