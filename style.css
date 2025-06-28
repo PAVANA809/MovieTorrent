@@ -1,54 +1,201 @@
+/* Reset and base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+:root {
+    --bg: #f4f6fb;
+    --text: #222;
+    --card-bg: #fff;
+    --accent: #0078d7;
+    --footer-bg: #222;
+    --footer-text: #fff;
+}
+.dark-mode {
+    --bg: #181a1b;
+    --text: #f4f6fb;
+    --card-bg: #23272b;
+    --accent: #4fc3f7;
+    --footer-bg: #111;
+    --footer-text: #e0e0e0; /* Brighter footer text */
+}
+.light-mode {
+    --bg: #f4f6fb;
+    --text: #222;
+    --card-bg: #fff;
+    --accent: #0078d7;
+    --footer-bg: #222;
+    --footer-text: #fff;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 #app {
-    min-height: 100vh
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 12px 60px 12px;
 }
 
-.dark-mode{
-    background-color: black;
-    color: white;
-    border-color: white;
-}
-
-.light-mode {
-    background-color: white;
-    color: black;
-    border-color: black
-}
-
-.searchbar{
+.searchbar {
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-bottom: 2px solid;
-}
-.torrent{
-    border-bottom: 2px solid;
-    padding: 8px;
-}
-.searchbar button{
-    margin: 0px 8px;
-    padding: 4px;
+    margin-bottom: 24px;
+    background: var(--card-bg);
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.input-text{
-    height: 24px;
-    width: 280px;
+.input-text {
+    flex: 1 1 200px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    transition: border 0.2s;
 }
+.input-text:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #005fa3;
+}
+
 .input-checkbox {
-    height: 18px;
-    width: 26px;
+    margin-left: 8px;
+    accent-color: var(--accent);
 }
-.footer{
+
+.torrents-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.torrent {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 18px 16px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-size: 24px;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.2s;
+}
+.torrent:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.torrent h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+    word-break: break-word;      /* Break long words */
+    overflow-wrap: anywhere;     /* Wrap anywhere if needed */
+    white-space: normal;         /* Allow multi-line */
+    max-width: 100%;             /* Prevent overflow */
+}
+.torrent a {
+    color: #fff; /* or a light color for dark backgrounds */
+    text-decoration: none;
+    font-weight: 500;
+}
+.torrent a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1rem;
+    z-index: 100;
 }
 .footer a {
+    color: var(--footer-text);
+    margin: 0 14px;
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.footer a:hover {
+    color: var(--accent);
+}
+
+.featured-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 0 10px 0;
+}
+.featured-poster img {
+    max-width: 180px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    margin-bottom: 10px;
+}
+.featured-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 4px;
+    word-break: break-word;
+}
+
+.mode-label {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.torrent-info {
+    color: var(--text);
+    font-size: 1rem;
+    margin: 2px 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .searchbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .footer {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
 }
